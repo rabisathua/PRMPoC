@@ -1,0 +1,36 @@
+<h1>Search Physician </h1>
+<%= form_for :physician do |f| %>
+	<p>
+		<%= f.label :Location %>
+		<%= f.select( :Name, Location.all.map {|c| c.Name}.uniq!,:include_blank => 'All') %><br/>
+		
+	</p>
+
+	<p>
+		<%= f.label :Specialities %>
+	
+			<%= f.select( :Speciality, Physiciandetail.all.map {|c| c.Speciality}.uniq! ,:include_blank => 'All') %>
+
+	</p>
+
+	<p>
+		<%= f.label :PhysicianRelationship %>
+		<%= f.radio_button :physicianrelationship, 'All', :checked => true %> 
+		 <%= label :physicianrelationship_All, 'All' %>
+		 <%= f.radio_button :physicianrelationship, 'Lead'  %> 
+		 <%= label :physicianrelationship_Lead, 'Lead' %>
+		 <%= f.radio_button :physicianrelationship, 'Involved' %> 
+		 <%= label :physicianrelationship_Involved, 'Involved' %>
+
+	<p>
+
+		
+				<%= link_to 'Submit', :action => 'index', :controller => 'physician' %>
+
+	</p>
+
+
+<% end %>
+
+ 
+	
