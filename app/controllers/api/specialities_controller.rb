@@ -1,6 +1,6 @@
 class SpecialitiesController < ApplicationController
 
-	def get_specialities
+	def index
 		render json: Speciality.for_select, status: 200
 	end
 end

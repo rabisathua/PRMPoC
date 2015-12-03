@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  scope 'v1/api/' do
-    get 'locations', to: 'locations#get_locations'
-    get 'specialities', to: 'specialities#get_specialities'
-    post 'physicians/:by', to: 'physician_details#get_physicians'
+  namespace 'api' do
+    namespace 'v1' do
+      resources :locations, only: [:index]
+      resources :specialities, only: [:index]
+      resources :physicians, only: [:index]
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
