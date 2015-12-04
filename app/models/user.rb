@@ -1,7 +1,14 @@
-class User < ActiveRecord::Base
-  belongs_to :client
-  # before_create :generate_salt
+require 'securerandom'
 
-  def self.authenticate
+class User < ActiveRecord::Base
+  # Include default devise modules.
+  # :registerable, #recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+  devise :database_authenticatable
+  include DeviseTokenAuth::Concerns::User
+  before_validation :set_uid
+
+  private
+  def set_uid
+  	self.uid = SecureRandom.uuid.gsub('-', '')
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202123205) do
+ActiveRecord::Schema.define(version: 20151204095947) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -73,24 +73,24 @@ ActiveRecord::Schema.define(version: 20151202123205) do
   add_index "specialities", ["client_id"], name: "index_specialities_on_client_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",   limit: 255, null: false
-    t.string   "password",   limit: 255, null: false
-    t.string   "salt",       limit: 255, null: false
-    t.string   "auth_token", limit: 255
-    t.datetime "last_login"
-    t.datetime "expiry"
-    t.integer  "client_id",  limit: 4,   null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "provider",           limit: 255,   default: "API", null: false
+    t.string   "uid",                limit: 255,   default: "",    null: false
+    t.string   "encrypted_password", limit: 255,   default: "",    null: false
+    t.string   "name",               limit: 255
+    t.string   "nickname",           limit: 255
+    t.string   "image",              limit: 255
+    t.string   "email",              limit: 255
+    t.text     "tokens",             limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["client_id"], name: "index_users_on_client_id", using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
   add_foreign_key "locations", "clients"
   add_foreign_key "physicians", "clients"
   add_foreign_key "physicians", "locations"
   add_foreign_key "physicians", "specialities"
   add_foreign_key "specialities", "clients"
-  add_foreign_key "users", "clients"
 end
