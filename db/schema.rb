@@ -73,12 +73,15 @@ ActiveRecord::Schema.define(version: 20151204095947) do
   add_index "specialities", ["client_id"], name: "index_specialities_on_client_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "provider",           limit: 255,   default: "API", null: false
-    t.string   "uid",                limit: 255,   default: "",    null: false
-    t.string   "encrypted_password", limit: 255,   default: "",    null: false
+    t.string   "provider",           limit: 255,   default: "email", null: false
+    t.string   "uid",                limit: 255,   default: "",      null: false
+    t.string   "encrypted_password", limit: 255,   default: "",      null: false
+    t.integer  "sign_in_count",      limit: 4,     default: 0,       null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip", limit: 255
+    t.string   "last_sign_in_ip",    limit: 255
     t.string   "name",               limit: 255
-    t.string   "nickname",           limit: 255
-    t.string   "image",              limit: 255
     t.string   "email",              limit: 255
     t.text     "tokens",             limit: 65535
     t.datetime "created_at"
