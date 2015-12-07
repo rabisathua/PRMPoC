@@ -142,13 +142,16 @@ physicians = [
 	{'first_name': 'Zelda', 'middle_name': 'Kirkland', 'last_name': 'Jameson', 'qualification': 'CMS', 'designation': 'Dr.', 'department': 'Legal Department', 'address': 'Ap #888-480 Sapien. Rd.', 'email': 'enim@tortorInteger.co.uk', 'years_of_experience': 5, 'group': 'F', 'npi_number': 7, 'speciality_id': 1, 'location_id': 52, 'client_id': 5, 'created_by': 1, 'updated_by': 1},
 	];
 
-
+test_user = [
+	{ email: 'test@ih.com', password: 'test1234', password_confirmation: 'test1234', name: 'test'}
+];
 
 begin
 	Client.create!(clients)
 	Location.create!(locations)
 	Speciality.create!(specialities)
 	Physician.create!(physicians)
+	User.create!(test_user)
 rescue StandardError => se
 	puts se.backtrace.join("\n")
 end
