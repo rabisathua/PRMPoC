@@ -123,5 +123,33 @@ locations = [
 	{'name': '845-3430 A St.', 'zip': '13309', 'client_id': 11, 'created_by': 1, 'updated_by': 1}
 ];
 
-Client.create!(clients)
-Location.create!(locations)
+specialities = [
+	{'name': 'Allergy and Immunology', 'client_id': 2, 'created_by': 1, 'updated_by': 1},
+	{'name': 'Anesthesia', 'client_id': 6, 'created_by': 1, 'updated_by': 1},
+	{'name': 'Cardiovascular', 'client_id': 14, 'created_by': 1, 'updated_by': 1},
+	{'name': 'Cardiology', 'client_id': 6, 'created_by': 1, 'updated_by': 1},
+	{'name': 'Dermatology', 'client_id': 14, 'created_by': 1, 'updated_by': 1},
+	{'name': 'Gastroenterology', 'client_id': 6, 'created_by': 1, 'updated_by': 1},
+	{'name': 'Endocrinology and Metabolism', 'client_id': 4, 'created_by': 1, 'updated_by': 1}
+];
+
+physicians = [
+	{'first_name': 'Willa', 'middle_name': 'Cohen', 'last_name': 'Kendall', 'qualification': 'BDM', 'designation': 'Dr.', 'department': 'Advertising', 'address': '832-445 Dui Ave', 'email': 'ligula@sapiengravida.org', 'years_of_experience': 1, 'group': 'C', 'npi_number': 1, 'speciality_id': 6, 'location_id': 74, 'client_id': 7, 'created_by': 1, 'updated_by': 1},
+	{'first_name': 'Beau', 'middle_name': 'Stevens', 'last_name': 'Libby', 'qualification': 'DM', 'designation': 'Ms.', 'department': 'Payroll', 'address': 'P.O. Box 142, 267 Interdum Rd.', 'email': 'donec@dis.edu', 'years_of_experience': 6, 'group': 'A', 'npi_number': 2, 'speciality_id': 2, 'location_id': 89, 'client_id': 4, 'created_by': 1, 'updated_by': 1},
+	{'first_name': 'Skyler', 'middle_name': 'Mullen', 'last_name': 'Chester', 'qualification': 'BDM', 'designation': 'Mr.', 'department': 'Human Resources', 'address': '402-4940 Dictum St.', 'email': 'sed@maurisMorbinon.com', 'years_of_experience': 9, 'group': 'A', 'npi_number': 4, 'speciality_id': 1, 'location_id': 22, 'client_id': 4, 'created_by': 1, 'updated_by': 1},
+	{'first_name': 'Dahlia', 'middle_name': 'Poole', 'last_name': 'Tamekah', 'qualification': 'MBBS', 'designation': '', 'department': 'Human Resources', 'address': '853-2956 Sit Street', 'email': 'nec@quis.com', 'years_of_experience': 6, 'group': 'A', 'npi_number': 5, 'speciality_id': 3, 'location_id': 50, 'client_id': 3, 'created_by': 1, 'updated_by': 1},
+	{'first_name': 'Gray', 'middle_name': 'Rodriguez', 'last_name': 'David', 'qualification': 'BDM', 'designation': '', 'department': 'Advertising', 'address': 'Ap #773-5907 Nullam Ave', 'email': 'libero@famesacturpis.org', 'years_of_experience': 4, 'group': 'A', 'npi_number': 6, 'speciality_id': 7, 'location_id': 49, 'client_id': 9, 'created_by': 1, 'updated_by': 1},
+	{'first_name': 'Zelda', 'middle_name': 'Kirkland', 'last_name': 'Jameson', 'qualification': 'CMS', 'designation': 'Dr.', 'department': 'Legal Department', 'address': 'Ap #888-480 Sapien. Rd.', 'email': 'enim@tortorInteger.co.uk', 'years_of_experience': 5, 'group': 'F', 'npi_number': 7, 'speciality_id': 1, 'location_id': 52, 'client_id': 5, 'created_by': 1, 'updated_by': 1},
+	];
+
+
+
+begin
+	Client.create!(clients)
+	Location.create!(locations)
+	Speciality.create!(specialities)
+	Physician.create!(physicians)
+rescue StandardError => se
+	puts se.backtrace.join("\n")
+end
+
