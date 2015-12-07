@@ -10,6 +10,9 @@ RSpec.describe "Authentication", type: :request do
 		}
 
 		expect(user.reload.tokens.count).to eq(1)
+		expect(response.headers["access-token"]).not_to be_nil
+		expect(response.headers["client"]).not_to be_nil
+		expect(response.headers["uid"]).not_to be_nil
 
 		delete destroy_api_user_session_path, {
 			"access-token": response.headers["access-token"],
