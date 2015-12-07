@@ -31,7 +31,7 @@ gem 'devise_token_auth'
 gem 'omniauth'
 
 gem 'rack-cors', require: 'rack/cors'
-
+gem 'simplecov', :require => false, :group => :test
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
