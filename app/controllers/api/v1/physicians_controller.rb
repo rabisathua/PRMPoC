@@ -1,6 +1,7 @@
 module Api
 	module V1
 		class PhysiciansController < Api::ApiController
+			before_action :authenticate_api_user!
 
 			def index
 				if params[:filters][:by] == 'all'

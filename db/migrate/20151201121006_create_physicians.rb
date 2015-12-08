@@ -11,8 +11,7 @@ class CreatePhysicians < ActiveRecord::Migration
 	    t.integer :npi_number, limit: 4,   null: false
 	    t.string :last_name, limit: 255, null: false
 	    t.string :email, limit: 255
-	    t.integer :years_of_experience, limit: 4, null: false
-	    t.string :relationship, limit: 10
+	    t.decimal :years_of_experience, precision: 4, scale: 2, null: false, default: 0.0
 	    t.boolean :is_involved, null: false, default: false
 	    t.boolean :is_lead, null: false, default: false
 	    t.references :speciality, null: false, index: true, foreign_key: true
