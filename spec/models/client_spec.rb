@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe Client, type: :model do
   
   it "should be a valid client" do
-  	client = build(:client)
+  	client = build(:client, name: 'client1')
 
   	expect(client).to be_valid
   end
 
   it "should be invalid when name is not given" do
-  	client = build(:client, name: nil)
+  	client = build(:client)
 
   	expect(client).not_to be_valid
   end

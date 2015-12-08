@@ -4,7 +4,7 @@ class Speciality < ActiveRecord::Base
 	has_many :physician_details
 
 	validates :name, :client_id, presence: true
-	validates :client_id, uniqueness: true
+  validates :name, uniqueness: true
 
 	scope :for_select, ->{Speciality.select(:id, :name)}	
 end

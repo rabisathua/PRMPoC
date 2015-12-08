@@ -13,8 +13,9 @@ RSpec.describe "Physicians", type: :request do
 		response
 	end
 
-	let(:location){ create(:location)}
-	let(:speciality){ create(:speciality)}
+  let(:client){ create(:client, name: 'client1')}
+	let(:location){ create(:location, name: 'location1', zip: '40012', client_id: client.id)}
+	let(:speciality){ create(:speciality, name: 'speciality1', client_id: client.id)}
 
 	it "should not allow access to physicians without authorization" do 
 		get api_v1_physicians_path
@@ -54,9 +55,6 @@ RSpec.describe "Physicians", type: :request do
 	end
 
 	it "should give lead physicains only" do
-		location = create(:location)
-		speciality = create(:speciality)
-
 		get api_v1_physicians_path, { filters: {
 				location_id: location.id,
 				speciality_id: speciality.id,
@@ -72,9 +70,6 @@ RSpec.describe "Physicians", type: :request do
 	end
 
 	it "should fail with if by filter is not provided" do
-		location = create(:location)
-		speciality = create(:speciality)
-
 		get api_v1_physicians_path, { filters: {
 				location_id: location.id,
 				speciality_id: speciality.id,

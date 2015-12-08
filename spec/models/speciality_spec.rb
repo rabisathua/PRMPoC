@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Speciality, type: :model do
-  let(:client){ create(:client, name: "Client1")}
+  let(:client){ create(:client, name: "client1")}
   
   it "should be a valid speciality" do
   	speciality = build(:speciality, name: "Physician", client_id: client.id)
