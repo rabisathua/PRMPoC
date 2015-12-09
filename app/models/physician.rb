@@ -3,7 +3,6 @@ class Physician < ActiveRecord::Base
 	belongs_to :location
 	belongs_to :speciality
 
-
 	scope :by_location_and_speciality, ->(location_id, speciality_id) do
 		where(location_id: location_id).where(speciality_id: speciality_id)
 	end

@@ -80,10 +80,10 @@ RSpec.describe "Physicians", type: :request do
 			"uid": auth_response.headers["uid"]
 		}
 
-		expect(response.status).to eq 500
+		expect(response.status).to eq 404
 	end
   
-  it "should fail if by filter is provided but is not the standard one" do
+  it "should fail with not found if by filter is provided but is not the standard one" do
 		get api_v1_physicians_path, { filters: {
 				location_id: location.id,
 				speciality_id: speciality.id,
@@ -95,6 +95,6 @@ RSpec.describe "Physicians", type: :request do
 			"uid": auth_response.headers["uid"]
 		}
 
-		expect(response.status).to eq 500
+		expect(response.status).to eq 404
   end
 end

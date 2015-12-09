@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/satya/Projects/PRMPoC-Services/spec/models/client_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/models/client_spec.rb": [
         1,
         null,
         1,
@@ -27,7 +27,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/rails_helper.rb": [
+      "/home/satya/Projects/PRMApplication/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -87,14 +87,14 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/environment.rb": [
+      "/home/satya/Projects/PRMApplication/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/application.rb": [
+      "/home/satya/Projects/PRMApplication/config/application.rb": [
         1,
         null,
         1,
@@ -136,12 +136,12 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/boot.rb": [
+      "/home/satya/Projects/PRMApplication/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/environments/test.rb": [
+      "/home/satya/Projects/PRMApplication/config/environments/test.rb": [
         1,
         null,
         null,
@@ -185,7 +185,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/assets.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -198,7 +198,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/backtrace_silencers.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -207,12 +207,12 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/cookies_serializer.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/devise.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -476,7 +476,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/devise_token_auth.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/devise_token_auth.rb": [
         1,
         null,
         null,
@@ -506,13 +506,13 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/filter_parameter_logging.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/inflections.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -530,18 +530,18 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/mime_types.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/session_store.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/initializers/wrap_parameters.rb": [
+      "/home/satya/Projects/PRMApplication/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -557,7 +557,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/factories/clients.rb": [
+      "/home/satya/Projects/PRMApplication/spec/factories/clients.rb": [
         1,
         1,
         null,
@@ -567,7 +567,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/factories/locations.rb": [
+      "/home/satya/Projects/PRMApplication/spec/factories/locations.rb": [
         1,
         1,
         null,
@@ -579,7 +579,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/factories/physicians.rb": [
+      "/home/satya/Projects/PRMApplication/spec/factories/physicians.rb": [
         1,
         1,
         1,
@@ -603,7 +603,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/factories/specialities.rb": [
+      "/home/satya/Projects/PRMApplication/spec/factories/specialities.rb": [
         1,
         1,
         null,
@@ -615,7 +615,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/factories/users.rb": [
+      "/home/satya/Projects/PRMApplication/spec/factories/users.rb": [
         1,
         1,
         1,
@@ -625,7 +625,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/config/routes.rb": [
+      "/home/satya/Projects/PRMApplication/config/routes.rb": [
         1,
         null,
         1,
@@ -693,7 +693,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/user.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/user.rb": [
         1,
         null,
         1,
@@ -701,16 +701,16 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/helpers/application_helper.rb": [
+      "/home/satya/Projects/PRMApplication/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/client.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/client.rb": [
         1,
         1,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/models/location_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/models/location_spec.rb": [
         1,
         null,
         1,
@@ -755,7 +755,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/location.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/location.rb": [
         1,
         null,
         1,
@@ -768,7 +768,7 @@
         2,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/models/physician_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/models/physician_spec.rb": [
         1,
         null,
         1,
@@ -785,12 +785,11 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/physician.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/physician.rb": [
         1,
         1,
         1,
         1,
-        null,
         null,
         1,
         3,
@@ -803,7 +802,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/models/speciality_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/models/speciality_spec.rb": [
         1,
         null,
         1,
@@ -835,7 +834,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/speciality.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/speciality.rb": [
         1,
         null,
         1,
@@ -847,7 +846,7 @@
         2,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/requests/authentication_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/requests/authentication_spec.rb": [
         1,
         null,
         1,
@@ -884,7 +883,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/requests/locations_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/requests/locations_spec.rb": [
         1,
         null,
         1,
@@ -918,7 +917,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/requests/physicians_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/requests/physicians_spec.rb": [
         1,
         null,
         1,
@@ -1020,7 +1019,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/spec/requests/specialities_spec.rb": [
+      "/home/satya/Projects/PRMApplication/spec/requests/specialities_spec.rb": [
         1,
         null,
         1,
@@ -1053,7 +1052,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/controllers/application_controller.rb": [
+      "/home/satya/Projects/PRMApplication/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -1063,7 +1062,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/controllers/api/v1/locations_controller.rb": [
+      "/home/satya/Projects/PRMApplication/app/controllers/api/v1/locations_controller.rb": [
         1,
         1,
         1,
@@ -1077,20 +1076,19 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/controllers/api/api_controller.rb": [
+      "/home/satya/Projects/PRMApplication/app/controllers/api/api_controller.rb": [
         1,
         1,
         null,
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/controllers/api/v1/physicians_controller.rb": [
+      "/home/satya/Projects/PRMApplication/app/controllers/api/v1/physicians_controller.rb": [
         1,
         1,
         1,
         1,
         1,
-        null,
         2,
         null,
         null,
@@ -1110,7 +1108,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/physician_filter/all.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/physician_filter/all.rb": [
         1,
         1,
         1,
@@ -1119,7 +1117,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/physician_filter/involved.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/physician_filter/involved.rb": [
         1,
         1,
         1,
@@ -1128,7 +1126,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/models/physician_filter/lead.rb": [
+      "/home/satya/Projects/PRMApplication/app/models/physician_filter/lead.rb": [
         1,
         1,
         1,
@@ -1137,7 +1135,7 @@
         null,
         null
       ],
-      "/Users/satya/Projects/PRMPoC-Services/app/controllers/api/v1/specialities_controller.rb": [
+      "/home/satya/Projects/PRMApplication/app/controllers/api/v1/specialities_controller.rb": [
         1,
         1,
         1,
@@ -1151,6 +1149,6 @@
         null
       ]
     },
-    "timestamp": 1449603873
+    "timestamp": 1449648395
   }
 }
