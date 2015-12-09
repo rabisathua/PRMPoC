@@ -30,6 +30,7 @@ gem 'devise'
 gem 'devise_token_auth'
 gem 'omniauth'
 
+gem 'will_paginate', '~> 3.0.7'
 gem 'rack-cors', require: 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
 

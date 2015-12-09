@@ -9,7 +9,7 @@ module Api
 			def index
         location_id = params[:filters][:location_id]
         speciality_id = params[:filters][:speciality_id]
-        @physicians = klass.physicians(location_id, speciality_id)
+        @physicians = klass.physicians(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
         render json: @physicians, status: 200
 			end
       
