@@ -2,6 +2,8 @@ module Api
 	module V1
 		class PhysiciansController < Api::ApiController
       before_action :authenticate_api_user!
+      after_action :pagination_headers, only: [:index]
+
       rescue_from NameError do |e|
         render json: ["#{e.message}"], status: 404
       end
@@ -17,7 +19,6 @@ module Api
         def klass
           params[:filters][:by].nil? ? (raise NameError) : ('PhysicianFilter::' + params[:filters][:by].capitalize!).constantize
         end
-      
 		end
 	end
 end

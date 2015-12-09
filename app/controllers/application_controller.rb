@@ -4,5 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
   include DeviseTokenAuth::Concerns::SetUserByToken
-      
+	
+	protected
+		def pagination_headers
+      results = instance_variable_get("@#{self.class.name.split("::").last.gsub("Controller", '').downcase!}")
+      response.headers["X-Pagination"] = {
+        total: results.total_entries,
+        total_pages: results.total_pages,
+        previous_page: results.previous_page,
+        next_page: results.next_page,
+        out_of_bounds: results.out_of_bounds?,
+        offset: results.offset
+      }.to_json
+    end
 end
