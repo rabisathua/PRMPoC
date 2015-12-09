@@ -34,27 +34,26 @@ ActiveRecord::Schema.define(version: 20151204095947) do
   add_index "locations", ["client_id"], name: "index_locations_on_client_id", using: :btree
 
   create_table "physicians", force: :cascade do |t|
-    t.string   "qualification",       limit: 255,                 null: false
-    t.string   "designation",         limit: 255,                 null: false
-    t.string   "group",               limit: 255,                 null: false
-    t.string   "address",             limit: 255,                 null: false
-    t.string   "department",          limit: 255,                 null: false
-    t.string   "first_name",          limit: 255,                 null: false
-    t.string   "middle_name",         limit: 255,                 null: false
-    t.integer  "npi_number",          limit: 4,                   null: false
-    t.string   "last_name",           limit: 255,                 null: false
+    t.string   "qualification",       limit: 255,                                         null: false
+    t.string   "designation",         limit: 255,                                         null: false
+    t.string   "group",               limit: 255,                                         null: false
+    t.string   "address",             limit: 255,                                         null: false
+    t.string   "department",          limit: 255,                                         null: false
+    t.string   "first_name",          limit: 255,                                         null: false
+    t.string   "middle_name",         limit: 255,                                         null: false
+    t.integer  "npi_number",          limit: 4,                                           null: false
+    t.string   "last_name",           limit: 255,                                         null: false
     t.string   "email",               limit: 255
-    t.integer  "years_of_experience", limit: 4,                   null: false
-    t.string   "relationship",        limit: 10
-    t.boolean  "is_involved",                     default: false, null: false
-    t.boolean  "is_lead",                         default: false, null: false
-    t.integer  "speciality_id",       limit: 4,                   null: false
-    t.integer  "location_id",         limit: 4,                   null: false
-    t.integer  "client_id",           limit: 4,                   null: false
-    t.integer  "created_by",          limit: 4,                   null: false
-    t.integer  "updated_by",          limit: 4,                   null: false
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.decimal  "years_of_experience",             precision: 4, scale: 2, default: 0.0,   null: false
+    t.boolean  "is_involved",                                             default: false, null: false
+    t.boolean  "is_lead",                                                 default: false, null: false
+    t.integer  "speciality_id",       limit: 4,                                           null: false
+    t.integer  "location_id",         limit: 4,                                           null: false
+    t.integer  "client_id",           limit: 4,                                           null: false
+    t.integer  "created_by",          limit: 4,                                           null: false
+    t.integer  "updated_by",          limit: 4,                                           null: false
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
   end
 
   add_index "physicians", ["client_id"], name: "index_physicians_on_client_id", using: :btree

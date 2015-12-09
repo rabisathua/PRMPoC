@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-08T22:57:52+05:30">2015-12-08T22:57:52+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-12-09T01:14:33+05:30">2015-12-09T01:14:33+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.17
+         1.23
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>40</b> files in total.
-    <b>276</b> relevant lines. 
-    <span class="green"><b>276</b> lines covered</span> and
+    <b>43</b> files in total.
+    <b>290</b> relevant lines. 
+    <span class="green"><b>290</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -53,9 +53,9 @@
       <tr>
         <td class="strong"><a href="#800afcea807fb238e0f2ad8cabfc9bfae84eb1e9" class="src_link" title="app/controllers/api/api_controller.rb">app/controllers/api/api_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>10</td>
         <td>5</td>
-        <td>5</td>
+        <td>2</td>
+        <td>2</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -73,11 +73,11 @@
       <tr>
         <td class="strong"><a href="#e8544ba14f8bc6591aa621bae3c0cb8fa5896f41" class="src_link" title="app/controllers/api/v1/physicians_controller.rb">app/controllers/api/v1/physicians_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>20</td>
-        <td>12</td>
-        <td>12</td>
+        <td>24</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
-        <td>1.5</td>
+        <td>2.4</td>
       </tr>
       
       <tr>
@@ -138,6 +138,36 @@
         <td>8</td>
         <td>0</td>
         <td>1.5</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#701b9de09ccd8c2db00331a59bb3a5745e8d939e" class="src_link" title="app/models/physician_filter/all.rb">app/models/physician_filter/all.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>7</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#cbad78042003886ab7e8568a789fb3c045a126ad" class="src_link" title="app/models/physician_filter/involved.rb">app/models/physician_filter/involved.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>7</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#ff75ab42eabc981f36ed2612caa0b5669ee1e445" class="src_link" title="app/models/physician_filter/lead.rb">app/models/physician_filter/lead.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>7</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -433,11 +463,11 @@
       <tr>
         <td class="strong"><a href="#b3379c12219b4a49d16079a052221ea128a578e2" class="src_link" title="spec/requests/physicians_spec.rb">spec/requests/physicians_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>85</td>
-        <td>24</td>
-        <td>24</td>
+        <td>100</td>
+        <td>27</td>
+        <td>27</td>
         <td>0</td>
-        <td>1.9</td>
+        <td>2.0</td>
       </tr>
       
       <tr>
@@ -471,8 +501,8 @@
     <h3>app/controllers/api/api_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>5</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -495,46 +525,16 @@
         <li class="never" data-hits="" data-linenumber="3">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="4">
           
-          <code class="ruby">  protected    </code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	  def unprocessble_data</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	  	render json: { message: &quot;Invalid data&quot;}, status: 422</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">	  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">end</code>
@@ -639,8 +639,8 @@
     <h3>app/controllers/api/v1/physicians_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>12</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -669,100 +669,124 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">			before_action :authenticate_api_user!</code>
+          <code class="ruby">      before_action :authenticate_api_user!</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      rescue_from NameError do |exception|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">        # Log here</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="7">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        render json: [&quot;#{exception.message}&quot;], status: 500</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">			def index</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="7">
-          <span class="hits">4</span>
-          
-          <code class="ruby">				if params[:filters][:by] == &#39;all&#39;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">					render json: Physician.by_location_and_speciality(params[:filters][:location_id], params[:filters][:speciality_id]), content_type: Mime::JSON, status: 200</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="9">
-          <span class="hits">3</span>
-          
-          <code class="ruby">				elsif params[:filters][:by] == &#39;involved&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">					render json: Physician.by_location_and_speciality(params[:filters][:location_id], params[:filters][:speciality_id]).by_involved, content_type: Mime::JSON, status: 200</code>
+          <code class="ruby">			def index</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="11">
+          <span class="hits">5</span>
           
-          <code class="ruby">				elsif params[:filters][:by] == &#39;lead&#39;</code>
+          <code class="ruby">        location_id = params[:filters][:location_id]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="5" data-linenumber="12">
+          <span class="hits">5</span>
           
-          <code class="ruby">					render json: Physician.by_location_and_speciality(params[:filters][:location_id], params[:filters][:speciality_id]).by_lead, content_type: Mime::JSON, status: 200</code>
+          <code class="ruby">        speciality_id = params[:filters][:speciality_id]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="5" data-linenumber="13">
+          <span class="hits">5</span>
           
-          
-          <code class="ruby">				else</code>
+          <code class="ruby">        @physicians = klass.physicians(location_id, speciality_id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
           
-          <code class="ruby">					unprocessble_data</code>
+          <code class="ruby">        render json: @physicians, status: 200</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">				end</code>
+          <code class="ruby">			end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">			end</code>
+          <code class="ruby">      </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        def klass</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="19">
+          <span class="hits">5</span>
+          
+          <code class="ruby">          (&#39;PhysicianFilter::&#39; + params[:filters][:by].capitalize!).constantize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">end</code>
@@ -1180,6 +1204,186 @@
           
           
           <code class="ruby"></code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="701b9de09ccd8c2db00331a59bb3a5745e8d939e">
+  <div class="header">
+    <h3>app/models/physician_filter/all.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module PhysicianFilter</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class All</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.physicians(location_id, speciality_id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      Physician.by_location_and_speciality(location_id, speciality_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="cbad78042003886ab7e8568a789fb3c045a126ad">
+  <div class="header">
+    <h3>app/models/physician_filter/involved.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module PhysicianFilter</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class Involved</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.physicians(location_id, speciality_id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      Physician.by_location_and_speciality(location_id, speciality_id).by_involved</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="ff75ab42eabc981f36ed2612caa0b5669ee1e445">
+  <div class="header">
+    <h3>app/models/physician_filter/lead.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module PhysicianFilter</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  class Lead</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def self.physicians(location_id, speciality_id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      Physician.by_location_and_speciality(location_id, speciality_id).by_lead</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">end</code>
         </li>
       
     </ol>
@@ -6627,8 +6831,8 @@
     <h3>spec/requests/physicians_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>27</b> relevant lines. 
+      <span class="green"><b>27</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6660,8 +6864,8 @@
           <code class="ruby">	</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="5">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="5">
+          <span class="hits">6</span>
           
           <code class="ruby">	let(:user){ create(:user) }</code>
         </li>
@@ -6678,8 +6882,8 @@
           <code class="ruby">	let(:auth_response) do</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="8">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="8">
+          <span class="hits">5</span>
           
           <code class="ruby">		post api_user_session_path, {</code>
         </li>
@@ -6708,8 +6912,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="13">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="13">
+          <span class="hits">5</span>
           
           <code class="ruby">		response</code>
         </li>
@@ -6726,20 +6930,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="16">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="16">
+          <span class="hits">6</span>
           
           <code class="ruby">  let(:client){ create(:client, name: &#39;client1&#39;)}</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="17">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="17">
+          <span class="hits">6</span>
           
           <code class="ruby">	let(:location){ create(:location, name: &#39;location1&#39;, zip: &#39;40012&#39;, client_id: client.id)}</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="18">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="18">
+          <span class="hits">6</span>
           
           <code class="ruby">	let(:speciality){ create(:speciality, name: &#39;speciality1&#39;, client_id: client.id)}</code>
         </li>
@@ -7065,7 +7269,7 @@
         <li class="covered" data-hits="1" data-linenumber="72">
           <span class="hits">1</span>
           
-          <code class="ruby">	it &quot;should fail with if by filter is not provided&quot; do</code>
+          <code class="ruby">	it &quot;should fail if by filter is not provided&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="73">
@@ -7131,7 +7335,7 @@
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">		expect(response.status).to eq 422</code>
+          <code class="ruby">		expect(response.status).to eq 500</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
@@ -7141,6 +7345,96 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="86">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;should fail if by filter is provided but is not the standard one&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		get api_v1_physicians_path, { filters: {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby">				location_id: location.id,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="89">
+          
+          
+          <code class="ruby">				speciality_id: speciality.id,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">        by: &quot;any&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby">			}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">		}, {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">			&quot;access-token&quot;: auth_response.headers[&quot;access-token&quot;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby">			&quot;client&quot;: auth_response.headers[&quot;client&quot;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">			&quot;uid&quot;: auth_response.headers[&quot;uid&quot;]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
+          
+          
+          <code class="ruby">		}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="98">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		expect(response.status).to eq 500</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="99">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">end</code>

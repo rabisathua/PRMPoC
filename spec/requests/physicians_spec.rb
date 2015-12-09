@@ -69,7 +69,7 @@ RSpec.describe "Physicians", type: :request do
 		expect(response.status).to eq 200
 	end
 
-	it "should fail with if by filter is not provided" do
+	it "should fail if by filter is not provided" do
 		get api_v1_physicians_path, { filters: {
 				location_id: location.id,
 				speciality_id: speciality.id,
@@ -80,6 +80,21 @@ RSpec.describe "Physicians", type: :request do
 			"uid": auth_response.headers["uid"]
 		}
 
-		expect(response.status).to eq 422
+		expect(response.status).to eq 500
 	end
+  
+  it "should fail if by filter is provided but is not the standard one" do
+		get api_v1_physicians_path, { filters: {
+				location_id: location.id,
+				speciality_id: speciality.id,
+        by: "any"
+			}
+		}, {
+			"access-token": auth_response.headers["access-token"],
+			"client": auth_response.headers["client"],
+			"uid": auth_response.headers["uid"]
+		}
+
+		expect(response.status).to eq 500
+  end
 end
