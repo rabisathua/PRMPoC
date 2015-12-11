@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   include DeviseTokenAuth::Concerns::SetUserByToken
 	
 	protected
-		def pagination_headers
-      results = instance_variable_get("@#{self.class.name.split("::").last.gsub("Controller", '').downcase!}")
+		def pagination_headers(name)
+      results = instance_variable_get("@#{name}")
       response.headers["X-Pagination"] = {
         total: results.total_entries,
         total_pages: results.total_pages,
