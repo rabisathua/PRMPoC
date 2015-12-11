@@ -4,7 +4,9 @@ module Api
 			before_action :authenticate_api_user!
 			
 			def index
-				render json: Location.for_select, status: 200
+				@locations = Location.all
+
+				respond_with(@locations)
 			end
 
 		end

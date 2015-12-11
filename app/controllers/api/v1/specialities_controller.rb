@@ -1,10 +1,12 @@
 module Api
 	module V1
-		class SpecialitiesController < ApplicationController
+		class SpecialitiesController < Api::ApiController
 			before_action :authenticate_api_user!
 
 			def index
-				render json: Speciality.for_select, status: 200
+				@specialities = Speciality.all
+
+				respond_with(@specialities)
 			end
 		end
 	end
