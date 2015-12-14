@@ -11,15 +11,21 @@ module Api
 			def index
         location_id = params[:filters][:location_id]
         speciality_id = params[:filters][:speciality_id]
-        @physicians = klass.physicians(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
+
+        @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
 
         respond_with(@physicians)
 			end
       
       private
-        def klass
-          params[:filters][:by].nil? ? (raise NameError) : ('PhysicianFilter::' + params[:filters][:by].capitalize!).constantize
+        def filters
+         { 
+           all: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id) }, 
+           involved: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_involved }, 
+           lead: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_lead }
+         }
         end
+
 		end
 	end
 end

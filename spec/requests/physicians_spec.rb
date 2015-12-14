@@ -32,10 +32,12 @@ RSpec.describe "Physicians", type: :request do
 		}, {
 			"access-token": auth_response.headers["access-token"],
 			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"]
+			"uid": auth_response.headers["uid"],
+			"Accept": "application/json"
 		}
 
 		expect(response.status).to eq 200
+		expect(response.content_type).to eq "application/json"
 	end
 
 	it "should give involved physicains only" do
@@ -48,10 +50,12 @@ RSpec.describe "Physicians", type: :request do
 		}, {
 			"access-token": auth_response.headers["access-token"],
 			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"]
+			"uid": auth_response.headers["uid"],
+			"Accept": "application/json"
 		}
 
 		expect(response.status).to eq 200
+		expect(response.content_type).to eq "application/json"
 	end
 
 	it "should give lead physicains only" do
@@ -63,10 +67,12 @@ RSpec.describe "Physicians", type: :request do
 		}, {
 			"access-token": auth_response.headers["access-token"],
 			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"]
+			"uid": auth_response.headers["uid"],
+			"Accept": "application/json"
 		}
 
 		expect(response.status).to eq 200
+		expect(response.content_type).to eq "application/json"
 	end
 
 	it "should fail if by filter is not provided" do
@@ -77,7 +83,8 @@ RSpec.describe "Physicians", type: :request do
 		}, {
 			"access-token": auth_response.headers["access-token"],
 			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"]
+			"uid": auth_response.headers["uid"], 
+			"Accept": "application/json"
 		}
 
 		expect(response.status).to eq 404
@@ -92,7 +99,8 @@ RSpec.describe "Physicians", type: :request do
 		}, {
 			"access-token": auth_response.headers["access-token"],
 			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"]
+			"uid": auth_response.headers["uid"],
+			"Accept": "application/json"
 		}
 
 		expect(response.status).to eq 404

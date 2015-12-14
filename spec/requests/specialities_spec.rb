@@ -20,12 +20,14 @@ RSpec.describe "Specialities", type: :request do
 
 	it "should allow access to specialities with authorization" do
 
-		get api_v1_specialities_path, {
+		get api_v1_specialities_path, nil, {
 			"access-token": auth_response.headers["access-token"],
 			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"]
+			"uid": auth_response.headers["uid"],
+			"Accept": "application/json"
 		}
 
 		expect(response.status).to eq 200
+		expect(response.content_type).to eq "application/json"
 	end
 end
