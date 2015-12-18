@@ -1,9 +1,8 @@
 class Speciality < ActiveRecord::Base
-	# name, client_id
-	belongs_to :client
+	has_many :client_specialities
+	has_many :clients, through: :client_specialities
 	has_many :physician_details
 
-	validates :name, :client_id, presence: true
   validates :name, uniqueness: true
 
 end

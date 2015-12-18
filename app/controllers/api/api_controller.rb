@@ -1,6 +1,7 @@
 module Api
   class ApiController < ApplicationController
   	skip_before_action :verify_authenticity_token, if: Proc.new{|c| c.request.format == "application/json"}
+  	# after_action :set_client
   	respond_to :json
 	
 		protected
@@ -15,5 +16,9 @@ module Api
 	        offset: results.offset
 	      }.to_json
 	    end
+
+	    # def set_client
+	    # 	response.headers["X-client-id"] = current_user.client
+	    # end
   end
 end

@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'thin'
 
-
+gem 'cancancan'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'omniauth'
