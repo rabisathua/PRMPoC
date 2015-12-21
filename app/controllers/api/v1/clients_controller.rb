@@ -9,7 +9,6 @@ module Api
 
 			def index
 				by = params[:filters][:by]
-				byebug
 				@clients = filters[by.to_sym].call(current_user).paginate(page: params[:page], per_page: params[:per_page])
 				
 				respond_with(@clients)
