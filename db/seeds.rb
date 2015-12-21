@@ -51,15 +51,20 @@ physicians = [
 	{'first_name': 'Zelda', 'middle_name': 'Kirkland', 'last_name': 'Jameson', 'qualification': 'CMS', 'designation': 'Dr.', 'department': 'Legal Department', 'address': 'Ap #888-480 Sapien. Rd.', 'email': 'enim@tortorInteger.co.uk', 'years_of_experience': 5, 'group': 'F', 'npi_number': 7, 'speciality_id': 1, 'location_id': 1, 'client_id': 5, 'created_by': 1, 'updated_by': 1},
 	];
 
-client_speciality = [
+client_specialities = [
 	{ 'client_id': 2, 'speciality_id': 1 },
 	{ 'client_id': 2, 'speciality_id': 2 },
 	{ 'client_id': 3, 'speciality_id': 1 },
 	{ 'client_id': 3, 'speciality_id': 4 }
 ];
 
-test_user = [
-	{ 'email': 'test@ih.com', 'password': 'test1234', 'password_confirmation': 'test1234', 'app_id': 2}
+test_users = [
+	{ 'email': 'test@ih.com', 'password': 'test1234', 'password_confirmation': 'test1234' }
+];
+
+client_users = [
+	{ client_id: 2, user_id: 1 },
+	{ client_id: 3, user_id: 1}
 ];
 
 
@@ -67,6 +72,7 @@ Client.create!(clients)
 Location.create!(locations)
 Speciality.create!(specialities)
 Physician.create!(physicians)
-ClientSpeciality.create!(client_speciality)
-User.create!(test_user)
+ClientSpeciality.create!(client_specialities)
+User.create!(test_users)
+ClientUser.create!(client_users)
 

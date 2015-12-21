@@ -6,7 +6,7 @@ class CreateClients < ActiveRecord::Migration
     	t.string :description, limit: 255, null: false
     	t.string :init_path, limit: 100, null: false
     	t.boolean :is_enabled, null: false, default: false
-
+        t.integer :ref_no
     	t.integer :created_by, null: false
     	t.integer :updated_by, null: false
     	t.timestamps null: false

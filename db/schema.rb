@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217121500) do
+ActiveRecord::Schema.define(version: 20151221095633) do
 
   create_table "client_specialities", force: :cascade do |t|
     t.integer  "client_id",      limit: 4
@@ -24,12 +24,23 @@ ActiveRecord::Schema.define(version: 20151217121500) do
   add_index "client_specialities", ["client_id", "speciality_id"], name: "by_client_id_and_speciality_id", unique: true, using: :btree
   add_index "client_specialities", ["speciality_id"], name: "fk_rails_781940f3c7", using: :btree
 
+  create_table "client_users", force: :cascade do |t|
+    t.integer  "client_id",  limit: 4, null: false
+    t.integer  "user_id",    limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "client_users", ["client_id"], name: "index_client_users_on_client_id", using: :btree
+  add_index "client_users", ["user_id"], name: "index_client_users_on_user_id", using: :btree
+
   create_table "clients", force: :cascade do |t|
     t.string   "name",        limit: 255,                 null: false
     t.string   "logo_path",   limit: 255,                 null: false
     t.string   "description", limit: 255,                 null: false
     t.string   "init_path",   limit: 100,                 null: false
     t.boolean  "is_enabled",              default: false, null: false
+    t.integer  "ref_no",      limit: 4
     t.integer  "created_by",  limit: 4,                   null: false
     t.integer  "updated_by",  limit: 4,                   null: false
     t.datetime "created_at",                              null: false
@@ -40,6 +51,7 @@ ActiveRecord::Schema.define(version: 20151217121500) do
     t.string   "name",       limit: 255, null: false
     t.string   "zip",        limit: 5,   null: false
     t.integer  "client_id",  limit: 4,   null: false
+    t.integer  "ref_no",     limit: 4
     t.integer  "created_by", limit: 4,   null: false
     t.integer  "updated_by", limit: 4,   null: false
     t.datetime "created_at",             null: false
@@ -94,13 +106,11 @@ ActiveRecord::Schema.define(version: 20151217121500) do
     t.string   "last_sign_in_ip",    limit: 255
     t.string   "name",               limit: 255
     t.string   "email",              limit: 255,                     null: false
-    t.integer  "app_id",             limit: 4,                       null: false
     t.text     "tokens",             limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["app_id"], name: "index_users_on_app_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 

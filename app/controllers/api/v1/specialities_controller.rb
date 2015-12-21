@@ -4,7 +4,9 @@ module Api
 			before_action :authenticate_api_user!
 
 			def index
-				@specialities = Speciality.all
+				byebug
+				clients = Client.includes(:specialities).where(id: JSON.parse(request.headers["app-id"]))
+				@specialities = clients.collect(&:specialities)
 
 				respond_with(@specialities)
 			end

@@ -5,7 +5,7 @@ class CreateLocations < ActiveRecord::Migration
     	t.string :zip, limit: 5, null: false
 
     	t.references :client, null: false, index: true, foreign_key: true
-    	
+      t.integer :ref_no    	
     	t.integer :created_by, null: false
     	t.integer :updated_by, null: false
       t.timestamps null: false

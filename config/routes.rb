@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # devise_for :users
+  devise_for :users
   
   namespace 'api' do
     mount_devise_token_auth_for 'User', at: 'auth'
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :locations, only: [:index]
       resources :specialities, only: [:index]
       resources :physicians, only: [:index]
+      resources :clients, only: [:index]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
