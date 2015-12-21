@@ -17,7 +17,7 @@ module Api
 			protected
 				def filters
 					{ 
-						all: -> {User.all},
+						all: -> { User.all },
 						user: ->(user){ user.clients } 																									
 					}
 				end

@@ -5,4 +5,5 @@ class Speciality < ActiveRecord::Base
 
   validates :name, uniqueness: true
 
+  scope :by_clients, ->(app_id){ includes(:clients).where("clients.id": app_id).uniq! }
 end
