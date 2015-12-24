@@ -12,8 +12,10 @@ module Api
         location_id = params[:filters][:location_id]
         speciality_id = params[:filters][:speciality_id]
 
-        @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
+        speciality_id = JSON.parse(speciality_id) if speciality_id.class == Array
 
+        @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
+        
         respond_with(@physicians)
 			end
       

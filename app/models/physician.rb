@@ -5,8 +5,8 @@ class Physician < ActiveRecord::Base
 
 	self.per_page = 10
 	
-	scope :by_location_and_speciality, ->(location_id, speciality_id) do
-		eager_load(:location, :speciality).where(location_id: location_id).where(speciality_id: speciality_id)
+	scope :by_location_and_speciality, ->(location_id, speciality_ids) do
+		eager_load(:location, :speciality).where(location_id: location_id).where(speciality_id: speciality_ids)
 	end
 
 	scope :by_involved, ->{ where(is_involved: true)	}
