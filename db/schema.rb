@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221095633) do
+ActiveRecord::Schema.define(version: 20151228065758) do
 
   create_table "client_specialities", force: :cascade do |t|
     t.integer  "client_id",      limit: 4
@@ -46,6 +46,27 @@ ActiveRecord::Schema.define(version: 20151221095633) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end
+
+  create_table "liason_physicians", force: :cascade do |t|
+    t.integer  "physician_id", limit: 4, null: false
+    t.integer  "liason_id",    limit: 4, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "liason_physicians", ["liason_id"], name: "index_liason_physicians_on_liason_id", using: :btree
+  add_index "liason_physicians", ["physician_id"], name: "index_liason_physicians_on_physician_id", using: :btree
+
+  create_table "liasons", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,                 null: false
+    t.boolean  "is_active",            default: false, null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "liasons", ["user_id"], name: "index_liasons_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -104,9 +125,12 @@ ActiveRecord::Schema.define(version: 20151221095633) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip", limit: 255
     t.string   "last_sign_in_ip",    limit: 255
-    t.string   "name",               limit: 255
+    t.string   "first_name",         limit: 255
+    t.string   "last_name",          limit: 255
     t.string   "email",              limit: 255,                     null: false
     t.text     "tokens",             limit: 65535
+    t.integer  "created_by",         limit: 4
+    t.integer  "updated_by",         limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -116,6 +140,11 @@ ActiveRecord::Schema.define(version: 20151221095633) do
 
   add_foreign_key "client_specialities", "clients"
   add_foreign_key "client_specialities", "specialities"
+  add_foreign_key "client_users", "clients"
+  add_foreign_key "client_users", "users"
+  add_foreign_key "liason_physicians", "liasons"
+  add_foreign_key "liason_physicians", "physicians"
+  add_foreign_key "liasons", "users"
   add_foreign_key "locations", "clients"
   add_foreign_key "physicians", "clients"
   add_foreign_key "physicians", "locations"

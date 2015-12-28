@@ -1,7 +1,7 @@
 class Location < ActiveRecord::Base
 	# location, zip, client_id
 	belongs_to :client
-	has_many :physician_details
+	has_many :physicians
 
 	validates :name, :zip, :client_id, presence: true
 	validates :name, :zip, uniqueness: true

@@ -1,8 +1,8 @@
 class CreateClientUsers < ActiveRecord::Migration
   def change
     create_table :client_users do |t|
-      t.integer :client_id, null: false, index: true
-      t.integer :user_id, null: false, index: true
+      t.references :client, null: false, index: true, foreign_key: true
+      t.references :user, null: false, index: true, foreign_key: true
 
       t.timestamps null: false
     end

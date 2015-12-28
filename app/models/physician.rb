@@ -2,6 +2,8 @@ class Physician < ActiveRecord::Base
 	belongs_to :client
 	belongs_to :location
 	belongs_to :speciality
+	has_many :liason_physicians
+	has_many :liasons, through: :liason_physicians
 
 	self.per_page = 10
 	
@@ -13,5 +15,6 @@ class Physician < ActiveRecord::Base
 
 	scope :by_lead, ->{ where(is_lead: true) }
 
+	scope :by_liason, ->(liason_id){ Liason.where(id: liason_id).last.physicians }
 end
 

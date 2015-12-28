@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :specialities, only: [:index]
       resources :physicians, only: [:index]
       resources :clients, only: [:index]
+      resources :liasons, only: [:index]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

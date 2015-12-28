@@ -12,7 +12,7 @@ module Api
         location_id = params[:filters][:location_id]
         speciality_id = params[:filters][:speciality_id]
 
-        speciality_id = JSON.parse(speciality_id) if speciality_id.class == Array
+        speciality_id = JSON.parse(speciality_id) if speciality_id =~ /\A\[\]\z/ # Need to parse only if it is of the form string
 
         @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
         
@@ -24,7 +24,8 @@ module Api
          { 
            all: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id) }, 
            involved: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_involved }, 
-           lead: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_lead }
+           lead: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_lead },
+           liason: ->(liason_id){ Physician.by_liason(liason_id) }
          }
         end
 
