@@ -5,7 +5,7 @@ module Api
 			set_pagination_headers :liasons, only: [:index]
 
 			def index
-				@liasons = Liason.all.(page: params[:page], per_page: params[:per_page])
+				@liasons = Liason.all.paginate(page: params[:page], per_page: params[:per_page])
 				
 				respond_with(@liasons)
 			end
