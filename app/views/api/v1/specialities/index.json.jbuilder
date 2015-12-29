@@ -1,4 +1,1 @@
-json.array! @specialities do |speciality|
-	json.id speciality.id
-	json.name speciality.name
-end
+json.partial! 'speciality', collection: @specialities, as: :speciality

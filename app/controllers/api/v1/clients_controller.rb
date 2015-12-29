@@ -2,7 +2,7 @@ module Api
 	module V1
 		class ClientsController < Api::ApiController
 			before_action :authenticate_api_user!
-      after_action(only: [:index]) {|c| c.pagination_headers("clients")}
+			set_pagination_headers :clients, only: [:index]
 			rescue_from NameError do |e|
         render json: ["#{e.message}"], status: 404
       end

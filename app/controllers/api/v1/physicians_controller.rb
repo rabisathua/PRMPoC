@@ -2,20 +2,21 @@ module Api
 	module V1
 		class PhysiciansController < Api::ApiController
       before_action :authenticate_api_user!
-      after_action(only: [:index]) {|c| c.pagination_headers("physicians")}
+      set_pagination_headers :physicians, only: [:index]
 
       rescue_from NameError do |e|
         render json: ["#{e.message}"], status: 404
       end
 
 			def index
-        location_id = params[:filters][:location_id]
-        speciality_id = params[:filters][:speciality_id]
+        unless params[:filters][:by] == "liason"
+          location_id = params[:filters][:location_id]
+          speciality_id = params[:filters][:speciality_id]          
 
-        speciality_id = JSON.parse(speciality_id) if speciality_id =~ /\A\[\]\z/ # Need to parse only if it is of the form string
-
-        @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
-        
+          @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
+        else
+          @physicians = filters[params[:filters][:by].to_sym].call(params[:filters][:liason_id]).paginate(page: params[:page], per_page: params[:per_page])
+        end
         respond_with(@physicians)
 			end
       
