@@ -9,13 +9,14 @@ module Api
       end
 
 			def index
-        unless params[:filters][:by] == "liason"
           location_id = params[:filters][:location_id]
-          speciality_id = params[:filters][:speciality_id]          
+          speciality_id = params[:filters][:speciality_id]
+          liason_id = params[:filters][:liason_id]
 
           @physicians = filters[params[:filters][:by].to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
-        else
-          @physicians = filters[params[:filters][:by].to_sym].call(params[:filters][:liason_id]).paginate(page: params[:page], per_page: params[:per_page])
+
+          @physicians += Liason.assigned_physicians if params[:filters][:liason_id].present?
+
         end
         respond_with(@physicians)
 			end
@@ -23,10 +24,9 @@ module Api
       private
         def filters
          { 
-           all: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id) }, 
+           all: ->(location_id, speciality_id){ Physician.by_location(location_id).by_speciality(speciality_id) }, 
            involved: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_involved }, 
-           lead: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_lead },
-           liason: ->(liason_id){ Physician.by_liason(liason_id) }
+           lead: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_lead }
          }
         end
 

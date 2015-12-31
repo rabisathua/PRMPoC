@@ -22,6 +22,9 @@ module PRMApplication
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    # Replaces creator_id/updator_id with created_by/updated_by magiclabs/userstamp gem
+    Ddb::Userstamp.compatibility_mode = true 
 
     config.middleware.delete "ActionDispatch::Cookies"
     config.middleware.delete "ActionDispatch::Session::CookieStore"

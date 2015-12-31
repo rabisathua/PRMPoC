@@ -18,8 +18,7 @@ class CreatePhysicians < ActiveRecord::Migration
 	  	t.references :location, null: false, index: true, foreign_key: true
 	  	t.references :client, null: false, index: true, foreign_key: true
 
-	    t.integer :created_by, null: false
-	    t.integer :updated_by, null: false
+	    t.userstamps
       t.timestamps null: false
     end
   end

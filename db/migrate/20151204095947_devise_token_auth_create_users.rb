@@ -41,8 +41,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration
       ## Tokens
       t.text :tokens
 
-      t.integer :created_by
-      t.integer :updated_by
+      t.userstamps
       t.timestamps
     end
 

@@ -5,6 +5,7 @@ class CreateClientSpecialities < ActiveRecord::Migration
       t.references :speciality, foreign_key: true
       t.string :alternate_name # Used as client specific name for speciality
 
+      t.userstamps
       t.timestamps null: false
     end
 

@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
     t.integer  "client_id",      limit: 4
     t.integer  "speciality_id",  limit: 4
     t.string   "alternate_name", limit: 255
+    t.integer  "created_by",     limit: 4
+    t.integer  "updated_by",     limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
   create_table "client_users", force: :cascade do |t|
     t.integer  "client_id",  limit: 4, null: false
     t.integer  "user_id",    limit: 4, null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -41,8 +45,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
     t.string   "init_path",   limit: 100,                 null: false
     t.boolean  "is_enabled",              default: false, null: false
     t.integer  "ref_no",      limit: 4
-    t.integer  "created_by",  limit: 4,                   null: false
-    t.integer  "updated_by",  limit: 4,                   null: false
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end
@@ -50,6 +54,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
   create_table "liason_physicians", force: :cascade do |t|
     t.integer  "physician_id", limit: 4, null: false
     t.integer  "liason_id",    limit: 4, null: false
+    t.integer  "created_by",   limit: 4
+    t.integer  "updated_by",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -73,8 +79,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
     t.string   "zip",        limit: 5,   null: false
     t.integer  "client_id",  limit: 4,   null: false
     t.integer  "ref_no",     limit: 4
-    t.integer  "created_by", limit: 4,   null: false
-    t.integer  "updated_by", limit: 4,   null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -98,8 +104,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
     t.integer  "speciality_id",       limit: 4,                                           null: false
     t.integer  "location_id",         limit: 4,                                           null: false
     t.integer  "client_id",           limit: 4,                                           null: false
-    t.integer  "created_by",          limit: 4,                                           null: false
-    t.integer  "updated_by",          limit: 4,                                           null: false
+    t.integer  "created_by",          limit: 4
+    t.integer  "updated_by",          limit: 4
     t.datetime "created_at",                                                              null: false
     t.datetime "updated_at",                                                              null: false
   end
@@ -110,8 +116,8 @@ ActiveRecord::Schema.define(version: 20151228065758) do
 
   create_table "specialities", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
-    t.integer  "created_by", limit: 4,   null: false
-    t.integer  "updated_by", limit: 4,   null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

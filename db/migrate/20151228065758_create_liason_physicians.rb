@@ -4,6 +4,7 @@ class CreateLiasonPhysicians < ActiveRecord::Migration
       t.references :physician, null: false, index: true, foreign_key: true
       t.references :liason, null: false, index: true, foreign_key: true
 
+      t.userstamps
       t.timestamps null: false
     end
   end

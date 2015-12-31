@@ -25,10 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'thin'
 
-gem 'cancancan'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'userstamp', :git => "git://github.com/insphire/userstamp.git"
 
 gem 'will_paginate', '~> 3.0.7'
 gem 'rack-cors', require: 'rack/cors'
