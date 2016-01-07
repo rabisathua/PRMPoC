@@ -14,23 +14,22 @@ module Api
       # Case 3: For a list of Involved Physicians based on location, speciality & involved => /physicians?filters[location_id]=1&filters[speciality_id]&filters[by]=involved
       # Case 4: For a list of Lead Physicians based on location, speciality & involved => /physicians?filters[location_id]=1&filters[speciality_id]&filters[by]=lead
 			def index
-          location_id = params[:filters][:location_id]
-          speciality_id = params[:filters][:speciality_id]
-          liason_id = params[:filters][:liason_id]
-          filter_by = params[:filters][:by]
+        location_id = params[:filters][:location_id]
+        speciality_id = params[:filters][:speciality_id]
+        liason_id = params[:filters][:liason_id]
+        filter_by = params[:filters][:by]
 
-          # This is default if not location and speciality is given
-          filter_by = "all" unless location_id.present? && speciality_id.present? 
-           # If "all" is not set then defaults to location_speciality by implication that location & speciality is present
-           # other explicit options that can be set are involved and lead
-          filter_by = "location_speciality" unless filter_by.present?
+        # This is default if not location and speciality is given
+        filter_by = "all" unless location_id.present? && speciality_id.present? 
+         # If "all" is not set then defaults to location_speciality by implication that location & speciality is present
+         # other explicit options that can be set are involved and lead
+        filter_by = "location_speciality" unless filter_by.present?
 
-          @physicians = filters[filter_by.to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
+        @physicians = filters[filter_by.to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
 
-          # Fetch physicians based on filters and who are assigned to Liasons with intersecting the object to obtain
-          # relevant result
-          @physicians += Liason.assigned_physicians(liason_id) if params[:filters][:liason_id].present?
-        end
+        # Fetch physicians based on filters and who are assigned to Liasons with intersecting the object to obtain
+        # relevant result
+        @physicians += Liason.assigned_physicians(liason_id) if params[:filters][:liason_id].present?
 
         respond_with(@physicians)
 			end
