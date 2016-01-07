@@ -4,12 +4,8 @@ module Api
 			before_action :authenticate_api_user!
 
 			def index
-        begin
-          app_id = JSON.parse(request.headers["app-id"])
-          raise unless app_id.class == Array
-        rescue StandardError => e
-          raise StandardError, "app-id is not in proper format."
-        end
+        app_id = JSON.parse(request.headers["app-id"])
+        raise "Expecting Array but got #{app_id.class} for app-id " unless app_id.class == Array
         
 				@specialities = Speciality.by_clients(app_id)
 

@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20151228065758) do
 
+  create_table "acls", force: :cascade do |t|
+    t.integer  "role_id",     limit: 4
+    t.integer  "resource_id", limit: 4
+    t.boolean  "allowed"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "client_specialities", force: :cascade do |t|
     t.integer  "client_id",      limit: 4
     t.integer  "speciality_id",  limit: 4
@@ -114,6 +122,20 @@ ActiveRecord::Schema.define(version: 20151228065758) do
   add_index "physicians", ["location_id"], name: "index_physicians_on_location_id", using: :btree
   add_index "physicians", ["speciality_id"], name: "index_physicians_on_speciality_id", using: :btree
 
+  create_table "resources", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "action",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "specialities", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
     t.integer  "created_by", limit: 4
@@ -134,6 +156,7 @@ ActiveRecord::Schema.define(version: 20151228065758) do
     t.string   "first_name",         limit: 255
     t.string   "last_name",          limit: 255
     t.string   "email",              limit: 255,                     null: false
+    t.integer  "role_id",            limit: 4,                       null: false
     t.text     "tokens",             limit: 65535
     t.integer  "created_by",         limit: 4
     t.integer  "updated_by",         limit: 4
