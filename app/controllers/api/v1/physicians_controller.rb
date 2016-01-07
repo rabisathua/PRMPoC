@@ -1,4 +1,5 @@
 require 'will_paginate/array'
+require 'set'
 
 module Api
 	module V1
@@ -31,7 +32,7 @@ module Api
 
         # Fetch physicians based on filters and who are assigned to Liasons with intersecting the object to obtain
         # relevant result
-        @physicians = ((filters[filter_by.to_sym].call(location_id, speciality_id) + Liason.assigned_physicians(liason_id)).uniq).paginate(page: params[:page], per_page: params[:per_page])  if params[:filters][:liason_id].present?
+        @physicians = ((filters[filter_by.to_sym].call(location_id, speciality_id).to_set.intersection(Liason.assigned_physicians(liason_id).to_set))).to_a.paginate(page: params[:page], per_page: params[:per_page])  if params[:filters][:liason_id].present?
 
         respond_with(@physicians)
 			end
