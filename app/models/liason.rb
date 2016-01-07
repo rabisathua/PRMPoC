@@ -2,7 +2,10 @@ class Liason < User
 	has_many :liason_physicians
 	has_many :physicians, through: :liason_physicians	
 
-	scope :assigned_physicians, ->(id){ Liason.includes(:physicians).where(id: id) }
+	def self.assigned_physicians(liason_id)
+		liason = Liason.where(id: liason_id).last
+		liason ? liason.physicians : []
+	end
 
 	def is_liason?
 		true

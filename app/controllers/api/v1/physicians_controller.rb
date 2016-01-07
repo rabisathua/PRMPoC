@@ -1,12 +1,14 @@
+require 'will_paginate/array'
+
 module Api
 	module V1
 		class PhysiciansController < Api::ApiController
       before_action :authenticate_api_user!
       set_pagination_headers :physicians, only: [:index]
 
-      rescue_from NameError do |e|
-        render json: ["#{e.message}"], status: 404
-      end
+      # rescue_from NameError do |e|
+      #   render json: ["#{e.message}"], status: 404
+      # end
 
       # Possible url parameters
       # Case 1: For a list of all Physicians => /physicians
@@ -25,11 +27,11 @@ module Api
          # other explicit options that can be set are involved and lead
         filter_by = "location_speciality" unless filter_by.present?
 
-        @physicians = filters[filter_by.to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page])
+        @physicians = filters[filter_by.to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page]) unless params[:filters][:liason_id].present?
 
         # Fetch physicians based on filters and who are assigned to Liasons with intersecting the object to obtain
         # relevant result
-        @physicians += Liason.assigned_physicians(liason_id) if params[:filters][:liason_id].present?
+        @physicians = ((filters[filter_by.to_sym].call(location_id, speciality_id) + Liason.assigned_physicians(liason_id)).uniq).paginate(page: params[:page], per_page: params[:per_page])  if params[:filters][:liason_id].present?
 
         respond_with(@physicians)
 			end
