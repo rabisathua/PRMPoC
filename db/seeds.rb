@@ -65,10 +65,10 @@ roles = [
 ];
 
 test_users = [
-	{ email: 'test@ih.com', password: 'test1234', password_confirmation: 'test1234', first_name: "Test", last_name: "User"},
-	{ email: 'liason1@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User" },
-	{ email: 'liason2@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User" },
-	{ email: 'liason3@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User" }
+	{ email: 'test@ih.com', password: 'test1234', password_confirmation: 'test1234', first_name: "Test", last_name: "User", active: true, type: "Admin"},
+	{ email: 'liason1@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User", active: true, type: "Liason" },
+	{ email: 'liason2@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User", active: true, type: "ClientAdmin" },
+	{ email: 'liason3@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User", active: true, type: "Liason" }
 ];
 
 resources = [
@@ -104,9 +104,12 @@ liasons = [
 ];
 
 liason_physicians = [
-	{ physician_id: 1, liason_id: 1},
-	{ physician_id: 2, liason_id: 1},
-	{ physician_id: 3, liason_id: 2}
+	{ physician_id: 1, liason_id: 2},
+	{ physician_id: 4, liason_id: 2},
+	{ physician_id: 5, liason_id: 2},
+	{ physician_id: 2, liason_id: 3},
+	{ physician_id: 6, liason_id: 3},
+	{ physician_id: 3, liason_id: 3}
 ];
 
 
@@ -119,6 +122,5 @@ Physician.create!(physicians)
 ClientSpeciality.create!(client_specialities)
 User.create!(test_users)
 ClientUser.create!(client_users)
-Liason.create!(liasons)
 LiasonPhysician.create!(liason_physicians)
 

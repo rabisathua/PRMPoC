@@ -37,6 +37,8 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email, null: false
+      t.boolean :active, null: false, default: true
+      t.string :type
 
       ## Tokens
       t.text :tokens
