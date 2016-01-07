@@ -28,8 +28,6 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-
-    byebug
     user.roles.each do |role|
       role.permissions.each do |permission|
         can permission.action.to_sym, permission.resource.constantize

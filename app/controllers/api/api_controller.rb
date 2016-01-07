@@ -1,7 +1,8 @@
 module Api
   class ApiController < ApplicationController
-  	skip_before_action :verify_authenticity_token, if: Proc.new{|c| c.request.format == "application/json"}
+  	skip_before_action :verify_authenticity_token, if: Proc.new{|c| c.request.format == "application/json" || c.request.format == "application/xml"}
   	respond_to :json
+  	rescue_from CanCan::AccessDenied, with: :unauthorized
 	
 		protected
 			def self.set_pagination_headers(name, options)
@@ -16,6 +17,13 @@ module Api
 		        offset: results.offset
 		      }.to_json
 		    end
+	    end
+
+	    def unauthorized
+	    	respond_to do |format|
+	    		format.json{render json: {message: "Unauthorized"}, status: 401}
+	    		format.xml{render json: {message: "Unauthorized"}, status: 401}
+	    	end
 	    end
   end
 end	

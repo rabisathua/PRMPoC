@@ -89,17 +89,17 @@ roles = [
 
 user_roles = [
 	{user_id: 1, role_id: 1},
-	{user_id: 2, role_id: 1},
-	{user_id: 2, role_id: 2},
-	{user_id: 3, role_id: 3},
+	{user_id: 2, role_id: 3},
+	{user_id: 3, role_id: 1},
+	{user_id: 3, role_id: 2},
 	{user_id: 4, role_id: 3}
 ];
 
 permissions = [
-	{ resource: 'locations', action: 'index'},
-	{ resource: 'specialities', action: 'index'},
-	{ resource: 'physicians', action: 'index'},
-	{ resource: 'liasons', action: 'index'}
+	{ resource: 'Location', action: 'index'},
+	{ resource: 'Speciality', action: 'index'},
+	{ resource: 'Physician', action: 'index'},
+	{ resource: 'Liason', action: 'index'}
 ];
 
 role_permissions = [
