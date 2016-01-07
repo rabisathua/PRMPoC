@@ -3,6 +3,7 @@ module Api
 		class LiasonsController < Api::ApiController
 			before_action :authenticate_api_user!
 			set_pagination_headers :liasons, only: [:index]
+			load_and_authorize_resource
 
 			def index
 				@liasons = Liason.all.paginate(page: params[:page], per_page: params[:per_page])

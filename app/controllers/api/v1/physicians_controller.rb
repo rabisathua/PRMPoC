@@ -6,6 +6,7 @@ module Api
 		class PhysiciansController < Api::ApiController
       before_action :authenticate_api_user!
       set_pagination_headers :physicians, only: [:index]
+      load_and_authorize_resource
 
       # rescue_from NameError do |e|
       #   render json: ["#{e.message}"], status: 404

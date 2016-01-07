@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228065758) do
+ActiveRecord::Schema.define(version: 20160107112753) do
 
   create_table "client_specialities", force: :cascade do |t|
     t.integer  "client_id",      limit: 4
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20151228065758) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",        limit: 255,                 null: false
-    t.string   "logo_path",   limit: 255,                 null: false
+    t.string   "logo_path",   limit: 255, default: "",    null: false
     t.string   "description", limit: 255,                 null: false
     t.string   "init_path",   limit: 100,                 null: false
     t.boolean  "is_enabled",              default: false, null: false
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 20151228065758) do
 
   add_index "locations", ["client_id"], name: "index_locations_on_client_id", using: :btree
 
+  create_table "permissions", force: :cascade do |t|
+    t.string   "action",     limit: 255
+    t.string   "resource",   limit: 255
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "physicians", force: :cascade do |t|
     t.string   "qualification",       limit: 255,                                         null: false
     t.string   "designation",         limit: 255,                                         null: false
@@ -103,12 +112,38 @@ ActiveRecord::Schema.define(version: 20151228065758) do
   add_index "physicians", ["location_id"], name: "index_physicians_on_location_id", using: :btree
   add_index "physicians", ["speciality_id"], name: "index_physicians_on_speciality_id", using: :btree
 
+  create_table "role_permissions", force: :cascade do |t|
+    t.integer  "role_id",       limit: 4
+    t.integer  "permission_id", limit: 4
+    t.integer  "created_by",    limit: 4
+    t.integer  "updated_by",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "specialities", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
     t.integer  "created_by", limit: 4
     t.integer  "updated_by", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "role_id",    limit: 4
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|

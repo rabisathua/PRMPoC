@@ -58,11 +58,6 @@ client_specialities = [
 	{ 'client_id': 3, 'speciality_id': 4 }
 ];
 
-roles = [
-	{ name: "admin", parent_id: nil },
-	{ name: "cadmin", parent_id: 1 }, # Client admin
-	{ name: "liason", parent_id: nil}
-];
 
 test_users = [
 	{ email: 'test@ih.com', password: 'test1234', password_confirmation: 'test1234', first_name: "Test", last_name: "User", active: true, type: "Admin"},
@@ -71,36 +66,9 @@ test_users = [
 	{ email: 'liason3@ih.com', password: 'liason123', password_confirmation: 'liason123', first_name: "Test", last_name: "User", active: true, type: "Liason" }
 ];
 
-resources = [
-	{ name: 'location', action: 'index'},
-	{ name: 'speciality', action: 'index'},
-	{ name: 'physician', action: 'index'},
-	{ name: 'liason', action: 'index'}
-];
-
-acls = [
-	{role_id: 1, resource_id: 1, allowed: true}, # location#index
-	{role_id: 1, resource_id: 2, allowed: true}, # speciality#index
-	{role_id: 1, resource_id: 3, allowed: true}, # physician#index
-	{role_id: 1, resource_id: 4, allowed: true}, # liason#index
-	{role_id: 2, resource_id: 1, allowed: true},
-	{role_id: 2, resource_id: 2, allowed: true},
-	{role_id: 2, resource_id: 3, allowed: true},
-	{role_id: 2, resource_id: 4, allowed: true},
-	{role_id: 3, resource_id: 1, allowed: true},
-	{role_id: 3, resource_id: 2, allowed: true},
-	{role_id: 3, resource_id: 3, allowed: true}
-];
-
 client_users = [
 	{ client_id: 2, user_id: 1 },
 	{ client_id: 3, user_id: 1}
-];
-
-liasons = [
-	{user_id: 2, is_active: true},
-	{user_id: 3, is_active: true},
-	{user_id: 4, is_active: true}
 ];
 
 liason_physicians = [
@@ -113,6 +81,41 @@ liason_physicians = [
 ];
 
 
+roles = [
+	{ name: "Admin" },
+	{ name: "Client Admin" }, # Client admin
+	{ name: "Liason" }
+];
+
+user_roles = [
+	{user_id: 1, role_id: 1},
+	{user_id: 2, role_id: 1},
+	{user_id: 2, role_id: 2},
+	{user_id: 3, role_id: 3},
+	{user_id: 4, role_id: 3}
+];
+
+permissions = [
+	{ resource: 'locations', action: 'index'},
+	{ resource: 'specialities', action: 'index'},
+	{ resource: 'physicians', action: 'index'},
+	{ resource: 'liasons', action: 'index'}
+];
+
+role_permissions = [
+	{role_id: 1, permission_id: 1},
+	{role_id: 1, permission_id: 2},
+	{role_id: 1, permission_id: 3},
+	{role_id: 1, permission_id: 4},
+
+	{role_id: 2, permission_id: 1},
+	{role_id: 2, permission_id: 2},
+	{role_id: 2, permission_id: 3},
+
+	{role_id: 3, permission_id: 1},
+	{role_id: 3, permission_id: 2},
+	{role_id: 3, permission_id: 3}
+];
 
 
 Client.create!(clients)
@@ -121,6 +124,10 @@ Speciality.create!(specialities)
 Physician.create!(physicians)
 ClientSpeciality.create!(client_specialities)
 User.create!(test_users)
+Role.create!(roles)
+UserRole.create!(user_roles)
+Permission.create!(permissions)
+RolePermission.create!(role_permissions)
 ClientUser.create!(client_users)
 LiasonPhysician.create!(liason_physicians)
 

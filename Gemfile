@@ -33,6 +33,7 @@ gem 'userstamp', :git => "git://github.com/insphire/userstamp.git"
 gem 'will_paginate', '~> 3.0.7'
 gem 'rack-cors', require: 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
+gem 'cancancan', '~> 1.10'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
