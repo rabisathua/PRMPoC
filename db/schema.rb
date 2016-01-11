@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20160107112753) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",        limit: 255,                 null: false
-    t.string   "logo_path",   limit: 255, default: "",    null: false
-    t.string   "description", limit: 255,                 null: false
-    t.string   "init_path",   limit: 100,                 null: false
+    t.string   "logo_path",   limit: 255
+    t.string   "description", limit: 255
+    t.string   "init_path",   limit: 100
     t.boolean  "is_enabled",              default: false, null: false
     t.integer  "ref_no",      limit: 4
     t.integer  "created_by",  limit: 4

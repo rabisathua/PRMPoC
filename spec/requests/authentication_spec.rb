@@ -2,15 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "Authentication", type: :request do
 
-	let(:user) { create(:user) }
+	let(:roles){ create_list(:role, 1, name: "Admin") }
+	let(:user) { create(:user, email: 'xyz@example.com', roles: roles ) }
 
 	it 'should generate token on signin and deletes token on signout' do
 
 		# POST auth/sign_in
-		post api_user_session_path, {
-			email: user.email,
-			password: user.password
-		}
+		sign_in(user)
 
 		expect(user.reload.tokens.count).to eq 1
 
@@ -21,15 +19,11 @@ RSpec.describe "Authentication", type: :request do
 		expect(response.headers["uid"]).not_to be_nil
 
 		# DELETE auth/sign_out
-		delete destroy_api_user_session_path, {
-			"access-token": response.headers["access-token"],
-			"client": response.header["client"],
-			"uid": response.header["uid"]
-		}
+		out_response = sign_out(response)
 
 		expect(user.reload.tokens.count).to eq 0
 
-		expect(response.status).to eq 200
+		expect(out_response.status).to eq 200
 	end
 
 end

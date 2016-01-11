@@ -2,33 +2,32 @@ require 'rails_helper'
 
 RSpec.describe "Locations", type: :request do
 
-	let(:user){ create(:user) }
-
-	let(:auth_response) do
-		post api_user_session_path, {
-			email: user.email,
-			password: user.password
-		}
-
-		response
+	before do
+		roles = create_list(:role, 1, name: "Admin")
+		user = create(:user, email: "xsa@example.com", roles: roles)
+		@auth_response = sign_in(user)
 	end
 
-	it "should not allow access to locations without authorization" do
+	after do
+		sign_out(@auth_response)
+	end
+
+	it "should deny access without authentication" do
 		get api_v1_locations_path
 
 		expect(response.status).to eq 401
 	end
 
-	it "should allow access to locations with authorization" do
+	it "should allow access with authentication" do
 
 		get api_v1_locations_path, nil, {
-			"access-token": auth_response.headers["access-token"],
-			"client": auth_response.headers["client"],
-			"uid": auth_response.headers["uid"],
+			"access-token": @auth_response.headers["access-token"],
+			"client": @auth_response.headers["client"],
+			"uid": @auth_response.headers["uid"],
 			"Accept": "application/json"
 		}
 
-		expect(response.status).to eq 200
 		expect(response.content_type).to eq("application/json")
+		expect(response.status).to eq 200
 	end
 end

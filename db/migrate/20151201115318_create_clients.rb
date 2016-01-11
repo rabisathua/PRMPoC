@@ -2,9 +2,9 @@ class CreateClients < ActiveRecord::Migration
   def change
     create_table :clients do |t|
     	t.string :name, limit: 255, null: false
-    	t.string :logo_path, null: false, default: ''
-    	t.string :description, limit: 255, null: false
-    	t.string :init_path, limit: 100, null: false
+    	t.string :logo_path
+    	t.string :description, limit: 255
+    	t.string :init_path, limit: 100
     	t.boolean :is_enabled, null: false, default: false
         t.integer :ref_no
 

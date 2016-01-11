@@ -8,9 +8,10 @@ module Api
       set_pagination_headers :physicians, only: [:index]
       load_and_authorize_resource
 
-      # rescue_from NameError do |e|
-      #   render json: ["#{e.message}"], status: 404
-      # end
+      # TODO Refactor and create and user some error from NameError
+      rescue_from NameError do |e|
+        render json: ["#{e.message}"], status: 404
+      end
 
       # Possible url parameters
       # Case 1: For a list of all Physicians => /physicians
