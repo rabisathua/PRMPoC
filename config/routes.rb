@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  
   namespace 'api' do
-    mount_devise_token_auth_for 'User', at: 'auth'
+    mount Knock::Engine => "auth"
     
     namespace 'v1' do
       resources :locations, only: [:index]

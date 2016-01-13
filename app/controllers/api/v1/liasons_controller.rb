@@ -1,7 +1,7 @@
 module Api
 	module V1
 		class LiasonsController < Api::ApiController
-			before_action :authenticate_api_user!
+			before_action :authenticate
 			set_pagination_headers :liasons, only: [:index]
 
 			def index

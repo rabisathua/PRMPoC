@@ -4,7 +4,7 @@ require 'set'
 module Api
 	module V1
 		class PhysiciansController < Api::ApiController
-      before_action :authenticate_api_user!
+      before_action :authenticate
       set_pagination_headers :physicians, only: [:index]
 
       # rescue_from NameError do |e|

@@ -1,7 +1,7 @@
 module Api
 	module V1
 		class LocationsController < Api::ApiController
-			before_action :authenticate_api_user!
+			before_action :authenticate
 			
 			def index
 				@locations = Location.all

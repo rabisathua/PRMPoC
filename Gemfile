@@ -25,9 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'thin'
 
-gem 'devise'
-gem 'devise_token_auth'
-gem 'omniauth'
+gem 'knock'
+
+gem 'responders', '~> 2.0'
+
 gem 'userstamp', :git => "git://github.com/insphire/userstamp.git"
 
 gem 'will_paginate', '~> 3.0.7'
