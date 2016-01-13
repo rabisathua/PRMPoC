@@ -3,12 +3,15 @@ module Api
 		class ClientsController < Api::ApiController
 			before_action :authenticate
 			set_pagination_headers :clients, only: [:index]
-			rescue_from NameError do |e|
-        render json: ["#{e.message}"], status: 404
-      end
+			# rescue_from NameError do |e|
+   #      render json: ["#{e.message}"], status: 404
+   #    end
 
 			def index
-				by = params[:filters][:by]
+				by = params[:filters][:by] if params.has_key?(:filters)
+				by = "all" unless by.present?
+
+				byebug
 				@clients = filters[by.to_sym].call(current_user).paginate(page: params[:page], per_page: params[:per_page])
 				
 				respond_with(@clients)
@@ -17,7 +20,7 @@ module Api
 			protected
 				def filters
 					{ 
-						all: -> { User.all },
+						all: proc{ User.all },
 						user: ->(user){ user.clients } 																									
 					}
 				end
