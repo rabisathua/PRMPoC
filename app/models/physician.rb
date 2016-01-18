@@ -5,13 +5,6 @@ class Physician < ActiveRecord::Base
 	has_many :liason_physicians
 	has_many :liasons, through: :liason_physicians
 
-	self.per_page = 10
-
-	# Use with unscope
-	default_scope do
-		eager_load(:location, :speciality)
-	end
-	
 	scope :by_location_and_speciality, ->(location_id, speciality_id) do
 		Physician.by_location(location_id).by_speciality(speciality_id)
 	end
