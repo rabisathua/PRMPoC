@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'thin'
 
 gem 'knock'
+gem 'omniauth', '~> 1.2'
+gem 'omniauth-auth0', '~> 1.1'
 
 gem 'responders', '~> 2.0'
 
@@ -34,6 +36,7 @@ gem 'userstamp', :git => "git://github.com/insphire/userstamp.git"
 gem 'will_paginate', '~> 3.0.7'
 gem 'rack-cors', require: 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,6 +49,7 @@ gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'dotenv-rails'
 	gem 'mailcatcher'
   gem 'byebug'
 	gem 'factory_girl_rails'

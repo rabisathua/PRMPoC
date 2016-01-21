@@ -35,6 +35,8 @@ module Api
         # relevant result
         @physicians = ((filters[filter_by.to_sym].call(location_id, speciality_id).to_set.intersection(Liason.assigned_physicians(liason_id).to_set))).to_a.paginate(page: params[:page], per_page: params[:per_page])  if liason_id.present?
 
+        @physicians ||= [].paginate(page: params[:page], per_page: params[:per_page])
+
         respond_with(@physicians)
 			end
       

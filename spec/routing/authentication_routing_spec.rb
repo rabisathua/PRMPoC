@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Authentication", type: :routing do
-	it "routes to /api/auth/sign_in" do
-		expect(get: 'api/auth/sign_in').to be_routable
-	end
-
-	it "routes to /api/auth/sign_out" do
-		expect(delete: 'api/auth/sign_out').to be_routable
+	it "routes to /api/auth/auth_token" do
+		expect(post: "/api/auth/auth_token").to route_to(controller: "knock/auth_token", action: "create")
 	end
 end
