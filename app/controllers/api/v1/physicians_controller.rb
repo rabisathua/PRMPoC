@@ -27,13 +27,14 @@ module Api
 
          # If "all" is not set then defaults to location_speciality by implication that location & speciality is present
          # other explicit options that can be set are involved and lead
-        filter_by = "location_speciality" if location_id.present? && speciality_id.present?
+        filter_by = "location_speciality" if location_id.present? && speciality_id.present? && filter_by.blank?
 
-        @physicians = filters[filter_by.to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page]) unless location_id.present?
+        @physicians = filters[filter_by.to_sym].call(location_id, speciality_id).paginate(page: params[:page], per_page: params[:per_page]) if location_id.present? && liason_id.blank?
 
         # Fetch physicians based on filters and who are assigned to Liasons with intersecting the set objects to obtain
         # relevant result
         @physicians = ((filters[filter_by.to_sym].call(location_id, speciality_id).to_set.intersection(Liason.assigned_physicians(liason_id).to_set))).to_a.paginate(page: params[:page], per_page: params[:per_page])  if liason_id.present?
+
 
         @physicians ||= [].paginate(page: params[:page], per_page: params[:per_page])
 
@@ -44,7 +45,7 @@ module Api
         def filters
           { 
             all: proc{ Physician.all },
-            location_speciality: ->(location_id, speciality_id){ Physician.by_location(location_id).by_speciality(speciality_id) }, 
+            location_speciality: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id) }, 
             involved: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_involved }, 
             lead: ->(location_id, speciality_id){ Physician.by_location_and_speciality(location_id, speciality_id).by_lead }
           }

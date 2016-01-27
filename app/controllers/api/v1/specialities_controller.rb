@@ -5,8 +5,8 @@ module Api
 
 			# Will need clients header key with the request and value should be an array of client_ids
 			def index
-        clients = JSON.parse(request.headers["clients"])
-        raise "Expecting Array but got #{app_id.class} for clients " unless clients.class == Array
+        		clients = JSON.parse(request.headers["clients"])
+        	raise "Expecting Array but got #{clients.class} for clients " unless clients.class == Array
         
 				@specialities = Speciality.by_clients(clients)
 
