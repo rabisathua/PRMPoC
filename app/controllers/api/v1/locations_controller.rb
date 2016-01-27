@@ -1,6 +1,7 @@
 module Api
 	module V1
 		class LocationsController < Api::ApiController
+
 			before_action :authenticate
 			
 			def index
