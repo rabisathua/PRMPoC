@@ -5,9 +5,8 @@ RSpec.describe "Locations", type: :request do
 	let(:user){ create(:user) }
 
 	let(:auth_response) do
-		post api_user_session_path, {
-			email: user.email,
-			password: user.password
+		post "/api/auth/auth_token", {
+			auth:{email: user.email,password: user.password}
 		}
 
 		response
@@ -28,7 +27,7 @@ RSpec.describe "Locations", type: :request do
 			"Accept": "application/json"
 		}
 
-		expect(response.status).to eq 200
-		expect(response.content_type).to eq("application/json")
+		expect(auth_response.status).to eq 200
+		expect(auth_response.content_type).to eq("application/json")
 	end
 end

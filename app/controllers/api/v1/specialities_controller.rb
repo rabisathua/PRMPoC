@@ -1,7 +1,7 @@
 module Api
 	module V1
 		class SpecialitiesController < Api::ApiController
-			before_action :authenticate
+			before_action :authenticate_user
 
 			# Will need clients header key with the request and value should be an array of client_ids
 			def index

@@ -308,6 +308,3 @@ DEPENDENCIES
   userstamp!
   web-console (~> 2.0)
   will_paginate (~> 3.0.7)
-
-BUNDLED WITH
-   1.11.2

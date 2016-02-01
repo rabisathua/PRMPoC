@@ -5,9 +5,9 @@ RSpec.describe "Physicians", type: :request do
 	let(:user){ create(:user) }
 
 	let(:auth_response) do
-		post api_user_session_path, {
-			email: user.email,
-			password: user.password
+		post "/api/auth/auth_token", {
+			auth:{email: user.email,
+			password: user.password}
 		}
 
 		response
